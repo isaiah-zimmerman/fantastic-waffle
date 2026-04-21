@@ -7,6 +7,15 @@ import java.io.IOException;
 public class Scores {
     private final ArrayList<Integer> nums;
 
+    public static void main(String[] args) {
+        try{
+            Scores s = new Scores("10 2 4");
+        }
+        catch (Exception e) {
+            System.out.println("Caught IllegalArgumentException: " + e.getMessage());
+        }
+    }
+
     /**
      * @param numbers should be a String with zero or more whitespace-delimited integers.
      * Each integer is a score. This class holds the list of scores parsed from the String.
